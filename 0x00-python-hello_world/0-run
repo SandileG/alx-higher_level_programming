@@ -1,3 +1,2 @@
 #!/bin/bash
-
 PY_SCRIPT=$PYFILE && python3 $PY_SCRIPT
