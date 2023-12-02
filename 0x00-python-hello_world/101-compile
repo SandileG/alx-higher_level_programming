@@ -3,7 +3,7 @@
 PYFILE=$PYFILE
 PYCOMPILED="${PYFILE%.py}.pyc"
 
-python3 -m compileall -b $PYFILE
+python3 -m compileall $PYFILE -b
 
 mv ${PYFILE}__pycache__/* $PYCOMPILED
 
