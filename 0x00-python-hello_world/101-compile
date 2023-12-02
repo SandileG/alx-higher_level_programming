@@ -1,8 +1,7 @@
 #!/bin/bash
 PYFILE=$PYFILE
-PYCOMPILED="${PYFILE%.py}.pyc"
-
+PYCOMPILED="${PYFILE%}.pyc"`
 python3 -m py_compile $PYFILE
 mv __pycache__/$PYCOMPILED $PYCOMPILED
-echo "Compiling $PYFILE ...
+echo "Compiling $PYFILE ..."
 echo 1
