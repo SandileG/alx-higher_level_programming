@@ -1,12 +1,2 @@
 #!/bin/bash
-
-PYFILE=$PYFILE
-PYCOMPILED="${PYFILE%.py}.pyc"
-
 python3 -m compileall $PYFILE -b
-
-mv ${PYFILE}__pycache__/* $PYCOMPILED
-
-echo "Compiling $PYFILE ..."
-
-echo 1
