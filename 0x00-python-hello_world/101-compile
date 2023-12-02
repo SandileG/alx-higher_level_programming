@@ -1,7 +1,16 @@
 #!/bin/bash
+
 PYFILE=$PYFILE
-PYCOMPILED="${PYFILE%}.pyc"`
-python3 -m py_compile $PYFILE
-mv __pycache__/$PYCOMPILED $PYCOMPILED
+PYCOMPILED="${PYFILE%.py}.pyc"
+
+# Compile the Python script using compileall
+python3 -m compileall -b $PYFILE
+
+# Rename the compiled file to match the expected output filename
+mv $PYFILE* $PYCOMPILED
+
+# Inform the user about the compilation
 echo "Compiling $PYFILE ..."
+
+# Output 1 to indicate successful compilation
 echo 1
