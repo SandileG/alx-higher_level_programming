@@ -10,17 +10,13 @@ def last_digit(number):
     except TypeError:
         print("Last digit of", number, "is not an integer")
         return
-    print("Last digit of", number, "is", last_digit, end=" ")
 
     if last_digit > 5:
-        print("and is greater than 5")
+        print(f"Last digit of {number} is {last_digit} and is greater than 5")
     elif last_digit == 0:
-        print("and is 0")
+        print(f"Last digit of {number} is {last_digit} and is 0")
     else:
-        if number < 0:
-            # Adjust the sign for negative numbers
-            last_digit = -last_digit
-        print("and is less than 6 and is not 0")
+        print(f"Last digit of {number} is {last_digit} and is less than 6 and is not 0")
 
 
 # Call the last_digit function with the random number
