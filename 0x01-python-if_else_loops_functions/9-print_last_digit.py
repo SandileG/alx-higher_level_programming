@@ -2,22 +2,15 @@
 
 
 def print_last_digit(number):
-    if number < 0:
-        last_num = -number % 10
-    elif number >= 0:
-        last_num = number % 10
-    print("{:d}".format(last_num), end="")
-    return last_num
+    last_digit = abs(number) % 10
+    print("{:d}".format(last_digit), end="")
+    return last_digit
 
 
 # Example usage:
 result = print_last_digit(98)
 print(result)
-
-
 result = print_last_digit(-98)
 print(result)
-
-
 result = print_last_digit(0)
 print(result)
