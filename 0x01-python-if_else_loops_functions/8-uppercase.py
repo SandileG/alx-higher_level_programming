@@ -2,9 +2,11 @@
 
 
 def uppercase(s):
+    result = ""
     for char in s:
         ascii_value = ord(char)
         if 97 <= ascii_value <= 122:
-            print("{:c}".format(ascii_value - 32), end="")
+            result += "{:c}".format(ascii_value - 32)
         else:
-            print("{:c}".format(ascii_value), end="")
+            result += "{:c}".format(ascii_value)
+    print(result)  # Print the final result after the string is processed
