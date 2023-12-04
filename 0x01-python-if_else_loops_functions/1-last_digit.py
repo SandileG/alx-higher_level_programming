@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import random
 
+number = random.randint(-10000, 10000)
+
 
 def last_digit(number):
     try:
@@ -18,17 +20,5 @@ def last_digit(number):
         print("and is less than 6 and is not 0")
 
 
-# Positive number
-last_digit(98)
-
-
-# Negative number
-last_digit(-98)
-
-
-# Zero
-last_digit(0)
-
-
-# Wrong type
-last_digit("hello")
+# Call the last_digit function with the random number
+last_digit(number)
