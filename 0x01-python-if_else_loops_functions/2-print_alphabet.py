@@ -2,4 +2,4 @@
 
 
 for char in range(ord('a'), ord('z') + 1):
-    print(chr(char), end='')
+    print("{}".format(chr(char)), end='')
