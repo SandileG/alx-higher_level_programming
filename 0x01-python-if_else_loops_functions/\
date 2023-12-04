@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 import random
 
-
-def last_digit(number):
+def last_digit(number:)
     try:
         last_digit = number % 10
     except TypeError:
-        print("Last digit of", number, "is not an integer")
+        print("Last digit of", numberm "is not an integer")
         return
     print("Last digit of", number, "is", last_digit, end=" ")
 
@@ -15,20 +14,8 @@ def last_digit(number):
     elif last_digit == 0:
         print("and is 0")
     else:
-        print("and is less than 6 and is not 0")
+        print("and is less than 6 not 0")
 
-
-# Positive number
 last_digit(98)
-
-
-# Negative number
 last_digit(-98)
-
-
-# Zero
-last_digit(0)
-
-
-# Wrong type
 last_digit("hello")
