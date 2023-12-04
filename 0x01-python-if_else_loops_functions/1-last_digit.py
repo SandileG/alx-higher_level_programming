@@ -17,6 +17,9 @@ def last_digit(number):
     elif last_digit == 0:
         print("and is 0")
     else:
+        if number < 0:
+            # Adjust the sign for negative numbers
+            last_digit = -last_digit
         print("and is less than 6 and is not 0")
 
 
