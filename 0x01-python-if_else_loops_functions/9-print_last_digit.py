@@ -7,7 +7,14 @@ def print_last_digit(number):
     return last_digit
 
 
-print_last_digit(98)
-print_last_digit(0)
-r = print_last_digit(-1024)
-print(r)
+# Example usage:
+result = print_last_digit(98)
+print(result)
+
+
+result = print_last_digit(-98)
+print(result)
+
+
+result = print_last_digit(0)
+print(result)
