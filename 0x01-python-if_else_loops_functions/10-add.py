@@ -2,11 +2,9 @@
 
 
 def add(a, b):
-    try:
-        result = int(a) + int(b)
-        return (result)
-    except ValueError:
-        return (None)
+    if not isinstance(a, int) or not isinstance(b, int):
+        raise TypeError("Unsupported operand type")
+    return (a + b)
 
 
 if __name__ == "__main__":
