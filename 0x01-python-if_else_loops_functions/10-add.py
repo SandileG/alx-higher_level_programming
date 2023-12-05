@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 
+
 def add(a, b):
     try:
         result = int(a) + int(b)
-        return result
+        return (result)
     except ValueError:
-        return None
+        return (None)
+
 
 if __name__ == "__main__":
     pass
