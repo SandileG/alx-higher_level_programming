@@ -4,9 +4,3 @@ def pow(a, b):
     result = a ** b
 
     return result
-
-# Test cases
-print(pow(2, 2))
-print(pow(-2, 2))
-print(pow(10, -2))
-print(pow(-98, -10))
