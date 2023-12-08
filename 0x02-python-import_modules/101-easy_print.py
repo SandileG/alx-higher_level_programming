@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-print("#pythoniscool")
+with open(1, 'w') as f:
+  f.write("#pythoniscool\n")
