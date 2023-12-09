@@ -16,7 +16,7 @@ def search_replace(my_list, search, replace):
     # Create new list to avoid tampering with original list.
     new_list = [
         replace if element == search else element
-        for element in my_ist
+        for element in my_list
     ]
 
     return (new_list)
