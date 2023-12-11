@@ -20,6 +20,9 @@ def roman_to_int(roman_string):
     prev_value = 0
 
     for char in reversed(roman_string):
+        if char not in roman_numerals:
+            return (0)
+
         value = roman_numerals[char]
 
         if value < prev_value:
