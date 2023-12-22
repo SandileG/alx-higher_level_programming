@@ -10,4 +10,5 @@ def safe_print_list_integers(a, b):
         result = None
     finally:
         print("Inside result: {}".format(result))
-	return (result)
+
+        return (result)
