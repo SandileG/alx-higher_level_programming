@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-def safe_print_list_integers(a, b):
+def safe_print_division(a, b):
     """
     Divides two integers and prints the result.
     """
@@ -10,5 +10,4 @@ def safe_print_list_integers(a, b):
         result = None
     finally:
         print("Inside result: {}".format(result))
-
         return (result)
