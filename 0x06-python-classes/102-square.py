@@ -1,9 +1,11 @@
+#!/usr/bin/python3
 """
 Module that defines a Square class
 """
 
 
 class Square:
+    """Represents a square with a size."""
     def __init__(self, size=0):
         """
         Initializes a new Square instance.
@@ -115,6 +117,6 @@ class Square:
             other: The other Square instance to compare.
 
         Returns:
-            True if area is greater than or equal to the other, False otherwise.
+            True: area is greater than or equal to other. False: otherwise.
         """
         return self.area() >= other.area()
