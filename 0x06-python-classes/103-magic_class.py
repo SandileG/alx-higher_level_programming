@@ -4,6 +4,7 @@ Module that defines a MagicClass.
 """
 import math
 
+
 class MagicClass:
     """
     Represents a circle with a radius.
