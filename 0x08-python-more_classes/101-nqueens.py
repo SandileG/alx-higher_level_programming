@@ -1,4 +1,41 @@
 #!/usr/bin/python3
+"""
+N-Queens Solver
+
+This module provides a program to solve the N-Queens problem. The N-Queens problem is the challenge of placing N non-attacking queens on an N×N chessboard.
+
+Usage:
+    ./101-nqueens.py N
+
+    If the user called the program with the wrong number of arguments, print
+    'Usage: 101-nqueens.py N', followed by a new line, and exit with the status 1,
+    where N must be an integer greater or equal to 4.
+
+    If N is not an integer, print 'N must be a number', followed by a new line,
+    and exit with the status 1.
+
+    If N is smaller than 4, print 'N must be at least 4', followed by a new line,
+    and exit with the status 1.
+
+    The program prints every possible solution to the N-Queens problem, one solution per line.
+    The format of each solution is a list of coordinates representing the positions of the queens on the chessboard.
+
+    You don’t have to print the solutions in a specific order.
+
+    The program uses backtracking to find the solutions.
+
+Example:
+    ./101-nqueens.py 4
+    [[0, 1], [1, 3], [2, 0], [3, 2]]
+    [[0, 2], [1, 0], [2, 3], [3, 1]]
+
+    ./101-nqueens.py 6
+    [[0, 1], [1, 3], [2, 5], [3, 0], [4, 2], [5, 4]]
+    [[0, 2], [1, 5], [2, 1], [3, 4], [4, 0], [5, 3]]
+    [[0, 3], [1, 0], [2, 4], [3, 1], [4, 5], [5, 2]]
+    [[0, 4], [1, 2], [2, 0], [3, 5], [4, 3], [5, 1]]
+"""
+
 import sys
 
 def is_safe(board, row, col, N):
