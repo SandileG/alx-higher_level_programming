@@ -1,0 +1,92 @@
+Test for 7-base_geometry.py
+-------------------------------------------------------------
+
+case 0: Valid integer
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("valid_int", 42)
+>>>
+
+--------------------------------------------------------------
+
+case 1: Valid integers
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("width", 100)
+>>> bg.integer_validator("height", 200)
+>>>
+
+--------------------------------------------------------------
+
+case 2: Invalid non-integer value
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("name", "John")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
+>>>
+
+--------------------------------------------------------------
+
+case 3: Invalid integer value (less than or equal to 0)
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age", 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] age must be greater than 0
+>>>
+
+-------------------------------------------
+
+case 4: Multiple invalid values
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("distance", -4)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] distance must be greater than 0
+>>>
+
+-------------------------------------------
+
+case 5: Valid and invalid values
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("valid_value", 10)
+>>> try:
+...     bg.integer_validator("invalid_value", -5)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] invalid_value must be greater than 0
+>>>
+
+-------------------------------------------
+
+case 6: Name with special characters
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("@#$%^&*", 7)
+>>>
+
+-------------------------------------------
+
+case 7: Large integer values
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("large_value", 999999999)
+>>>
+
+-------------------------------------------
