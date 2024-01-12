@@ -1,5 +1,5 @@
 Test for 7-base_geometry.py
--------------------------------------------------------------
+-------------------------------------------
 
 case 0: Valid integer
 
@@ -8,7 +8,7 @@ case 0: Valid integer
 >>> bg.integer_validator("valid_int", 42)
 >>>
 
---------------------------------------------------------------
+-------------------------------------------
 
 case 1: Valid integers
 
@@ -18,7 +18,7 @@ case 1: Valid integers
 >>> bg.integer_validator("height", 200)
 >>>
 
---------------------------------------------------------------
+-------------------------------------------
 
 case 2: Invalid non-integer value
 
@@ -27,11 +27,10 @@ case 2: Invalid non-integer value
 >>> try:
 ...     bg.integer_validator("name", "John")
 ... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] name must be an integer
+...     assert str(e) == "name must be an integer", e
 >>>
 
---------------------------------------------------------------
+-------------------------------------------
 
 case 3: Invalid integer value (less than or equal to 0)
 
@@ -40,53 +39,91 @@ case 3: Invalid integer value (less than or equal to 0)
 >>> try:
 ...     bg.integer_validator("age", 0)
 ... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] age must be greater than 0
+...     assert str(e) == "age must be greater than 0", e
 >>>
 
 -------------------------------------------
 
-case 4: Multiple invalid values
+case 4: Invalid integer value (negative)
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
 >>> try:
 ...     bg.integer_validator("distance", -4)
 ... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] distance must be greater than 0
+...     assert str(e) == "distance must be greater than 0", e
 >>>
 
 -------------------------------------------
 
-case 5: Valid and invalid values
+case 5: Invalid non-integer value (string)
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
->>> bg.integer_validator("valid_value", 10)
 >>> try:
-...     bg.integer_validator("invalid_value", -5)
+...     bg.integer_validator("age", "4")
 ... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] invalid_value must be greater than 0
+...     assert str(e) == "age must be an integer", e
 >>>
 
 -------------------------------------------
 
-case 6: Name with special characters
+case 6: Invalid non-integer value (tuple)
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
->>> bg.integer_validator("@#$%^&*", 7)
+>>> try:
+...     bg.integer_validator("age", (4,))
+... except Exception as e:
+...     assert str(e) == "age must be an integer", e
 >>>
 
 -------------------------------------------
 
-case 7: Large integer values
+case 7: Invalid non-integer value (list)
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
->>> bg.integer_validator("large_value", 999999999)
+>>> try:
+...     bg.integer_validator("age", [3])
+... except Exception as e:
+...     assert str(e) == "age must be an integer", e
+>>>
+
+-------------------------------------------
+
+case 8: Invalid non-integer value (boolean)
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age", True)
+... except Exception as e:
+...     assert str(e) == "age must be an integer", e
+>>>
+
+-------------------------------------------
+
+case 9: Invalid non-integer value (set)
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age", {3, 4})
+... except Exception as e:
+...     assert str(e) == "age must be an integer", e
+>>>
+
+-------------------------------------------
+
+case 10: Invalid non-integer value (None)
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age", None)
+... except Exception as e:
+...     assert str(e) == "age must be an integer", e
 >>>
 
 -------------------------------------------
