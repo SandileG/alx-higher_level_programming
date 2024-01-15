@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Defines function that writes string to text file and returns number of character.
+Defines function that writes string to file and returns number of character.
 """
 
 
