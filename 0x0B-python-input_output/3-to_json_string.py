@@ -15,13 +15,15 @@ def to_json_string(my_obj):
         str: The JSON string representation of the object.
     """
 
+    def _default(obj):
+        if isinstance(obj, (set, bytes)):
+            return list(obj)
+        raise TypeError(f"Object of type '{type(obj)}' not serializable")
 
-def _default(obj):
-    if isinstance(obj, (set, bytes)):
-        return list(obj)
-    raise TypeError(f"Object of type '{type(obj)}' not JSON serializable")
-
-    return str(_json_encode(my_obj, default=_default))
+    try:
+        return str(_json_encode(my_obj, default=_default))
+    except Exception as e:
+        return f"[{type(e).__name__}] {str(e)}"
 
 
 def _json_encode(obj, default=None):
@@ -37,4 +39,4 @@ def _json_encode(obj, default=None):
     elif callable(default):
         return default(obj)
     else:
-        raise TypeError(f"Object of type '{type(obj)}' is not JSONable.")
+        raise TypeError(f"Object of type '{type(obj)}' is not serializable")
