@@ -11,7 +11,7 @@ def save_to_json_file(my_obj, filename):
 
     Args:
         my_obj: The object to be serialized and saved.
-	filename (str): The name of the file to save the JSON representation,
+        filename (str): The name of the file to save the JSON representation,
 
     Returns:
         None
