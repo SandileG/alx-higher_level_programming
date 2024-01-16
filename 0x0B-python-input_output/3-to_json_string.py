@@ -1,10 +1,8 @@
-#!/usr/bin/python3
+#!/ussr/bin/python3
 """
 Defines a string-to-JSON function.
 """
 import json
 
 
-def to_json_string(my_obj):
-    """Return the JSON representation of a string object."""
-    return json.dumps(my_obj)
+to_json_string = json.dumps
