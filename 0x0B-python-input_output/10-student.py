@@ -37,7 +37,5 @@ class Student:
         """
         # If attrs is not specified, retrieve all attributes
         if attrs is None or not attrs:
-            return self.__dict__
-
-        # Only retrieve specified attributes from the object's dictionary
-        return {a: getattr(self, a, None) for a in attrs or dir(self) if hasattr(self, a)}
+            return {}
+        return {attr: getattr(self, attr, None) for attr in attrs if hasattr(self, attr)}
