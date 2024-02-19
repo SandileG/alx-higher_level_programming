@@ -3,7 +3,7 @@
 # Creating a New MySQL User
 To create a new MySQL user, follow these steps:
 
-*Login to MySQL: Access the MySQL database server using a MySQL client or command-line interface.
+* Login to MySQL: Access the MySQL database server using a MySQL client or command-line interface.
 
 *Execute CREATE USER Command: Use the CREATE USER command followed by the desired username and host to create a new user. For example:
 sql
