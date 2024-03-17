@@ -2,21 +2,16 @@
 import MySQLdb
 import sys
 
-if __name__ == "__main__":
-    # Get MySQL credentials from command line arguments
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-
+def select_states(username, password, database):
     # Connect to MySQL server
     db = MySQLdb.connect(host="localhost", port=3306,
-                        user=username, passwd=password, db=database)
+                         user=username, passwd=password, db=database)
 
-    # Create a sursor object
+    # Create a cursor object
     cur = db.cursor()
 
     # Execute SQL query to select all states sorted by id
-    sur.execute("SELECT * FROM states ORDER BY id")
+    cur.execute("SELECT * FROM states ORDER BY id")
 
     # Fetch all rows
     rows = cur.fetchall()
@@ -29,4 +24,15 @@ if __name__ == "__main__":
     cur.close()
     db.close()
 
-   
+if __name__ == "__main__":
+    if len(sys.argv) != 4:
+        print("Usage: {} <mysql_username> <mysql_password> <database_name>".format(sys.argv[0]))
+        sys.exit(1)
+    
+    # Get MySQL credentials from command line arguments
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+
+    # Call function to select states
+    select_states(username, password, database)
