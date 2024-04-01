@@ -1,16 +1,17 @@
 #!/usr/bin/python3
-import requests
-import sys
+"""
+Displays GitHub credentials (username and password).
+"""
 
 if __name__ == '__main__':
-    username = sys.argv[1]
-    password = sys.argv[2]
+    from requests import get
+    from sys import argv
 
-    url = 'https://api.github.com/user'
-    response = requests.get(url, auth=(username, password))
+    username = argv[1]
+    password = argv[2]
 
-    if response.status_code == 200:
-        user_info = response.json()
-        print(user_info['id'])
-    else:
-        print(None)
+    Mega_link = "https://api.github.com/user"
+    answer = get(Mega_link, auth=(username, password))
+    json = answer.json()
+
+    print(json.get('id'))
