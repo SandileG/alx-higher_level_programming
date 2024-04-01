@@ -4,7 +4,7 @@ import urllib.parse
 import sys
 
 if len(sys.argv) < 3:
-    print("Usage: {} <URL> <email>".format(sys.regv[0]))
+    print("Usage: {} <URL> <email>".format(sys.argv[0]))
     sys.exit(1)
 
 url = sys.argv[1]
@@ -15,4 +15,4 @@ req = urllib.request.Request(url, data=data, method='POST')
 
 with urllib.request.urlopen(req) as response:
     body = response.read().decode('utf-8')
-    print(body)
+    print(body
