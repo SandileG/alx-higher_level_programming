@@ -1,16 +1,17 @@
 #!/usr/bin/python3
+"""
+Sends a POST request to the passed URL with the email as a parameter,
+and displays the body of the response (decoded in utf-8)
+"""
 
 if __name__ == '__main__':
     import urllib.request
     import urllib.parse
     import sys
 
-    if len(sys.argv) < 3:
-        print("Usage: {} <URL> <email>".format(sys.argv[0]))
-        sys.exit(1)
-
-    url = sys.argv[1]
-    email = sys.argv[2]
+    argv = sys.argv
+    url = argv[1]
+    email = argv[2]
     DATA = urllib.parse.urlencode({"email": email})
     DATA = DATA.encode('ascii')
 
