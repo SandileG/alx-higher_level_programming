@@ -1,3 +1,5 @@
+#!/usr/bin/pyhton3
+
 import urllib.request
 import sys
 
