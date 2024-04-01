@@ -1,18 +1,13 @@
-#!/usr/bin/pyhton3
-
+#!/usr/bin/python3
 import urllib.request
-import sys
 
-# Get the URL from the command-line argument
-url = sys.argv[1]
+url = 'https://alx-intranet.hbtn.io/status'
 
-# Open the URL using a with statement for proper resource management
 with urllib.request.urlopen(url) as response:
-   # Extract the headers from the response
-   headers = response.info()
+    body = response.read()
+    utf8_content = body.decode('utf-8')
 
-   # Retrieve the X-Request-Id from the headers
-   request_id = headers.get("X-Request-Id")
-
-   # Print the retrieved X-Request-Id value
-   print(request_id)
+print("Body response:")
+print("\t- type:", type(body))
+print("\t- content:", body)
+print("\t- utf8 content:", utf8_content)
