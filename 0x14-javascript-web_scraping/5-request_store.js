@@ -1,27 +1,17 @@
 #!/usr/bin/node
+// lorem ipsum
 
 const request = require('request');
 const fs = require('fs');
 
-const url = process.argv[2];
-const filePath = process.argv[3];
-
-request.get(url, (error, response, body) => {
+request.get(process.argv[2], (error, response, body) => {
   if (error) {
-    console.error(error);
-    return;
+    console.log(error);
+  } else {
+    fs.writeFile(process.argv[3], body, 'utf-8', (error) => {
+      if (error) {
+        console.log(error);
+      }
+    });
   }
-
-  if (response.statusCode !== 200) {
-    console.error(`Failed to fetch URL. Status code: ${response.statusCode}`);
-    return;
-  }
-
-  fs.writeFile(filePath, body, 'utf-8', (err) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log(`The contents of ${url} have been saved to ${filePath}`);
-  });
 });
